@@ -114,14 +114,14 @@ if __name__ == '__main__':
                 if client_idx in args.test_envs:
                     pass
                 else:
-                    train_acc = test(
+                    _, train_acc = test(
                         args, model, train_test_loaders[client_idx], device)
                     print(' Site-{:d}| Train Acc: {:.4f}'.format(
                         client_idx, train_acc))
                     logrecord += ' Site-{:d}| Train Acc: {:.4f}\n'.format(
                         client_idx, train_acc)
 
-                    val_acc = test(
+                    _, val_acc = test(
                         args, model, val_loaders[client_idx], device)
                     val_acc_list[client_idx] = val_acc
                     print(' Site-{:d}| Val  Acc: {:.4f}'.format(
